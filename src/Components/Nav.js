@@ -54,6 +54,10 @@ const Nav = () => {
           </div>
         </NavLink>
 
+        <Link to={"/dashboard"}>
+          <button className="btn-Login">Dashboard</button>
+        </Link>
+
        <Link to={"/login"}>
         <button  className="btn-Login">Login</button>
         </Link>
