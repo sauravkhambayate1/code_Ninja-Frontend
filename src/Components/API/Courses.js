@@ -66,6 +66,8 @@ function TypingComponent() {
   return (
     <>
     <div ref={containerRef} className="typing_text">{currentText}</div>
+    <img className='home-pic' src='https://files.codingninjas.in/438375-17407.webp' alt='home ima'/>
+        <img className='home-pic-two' src='https://files.codingninjas.com/group-3931-8996.svg' alt='home ima'/>
     <div className="typing_text" ref={containerRef}></div>
 <div className="text-2">Be a Coding Ninja </div>
 <p className="para-1">50,000 Students from 300 Colleges have trusted us .</p>
