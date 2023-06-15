@@ -1,88 +1,64 @@
-import React, { useEffect, useRef, useState, useMemo } from "react";
-import Section2 from "../../pages/Section2";
-import Section3 from "../../pages/Section3";
-import Section4 from "../../pages/Section4";
-import Section from "../../pages/Section5";
-import Section6 from "../../pages/Section6";
-import Section7 from "../../pages/Section7";
-
-
-function TypingComponent() {
-  const [currentText, setCurrentText] = useState("");
-  const currentIndex = useRef(0);
-  const containerRef = useRef(null);
-  const typingIntervalRef = useRef(null);
-  const deletingIntervalRef = useRef(null);
-
-  const texts = useMemo(
-    () => [
-      "World has enough Coders.",
-      "Be more than the coder.",
-      "Chasing Jobs? Lets jobs chase you.."
-    ],
-    []
-  );
-
-  useEffect(() => {
-    const typeText = () => {
-      const text = texts[currentIndex.current];
-      let charIndex = 0;
-      typingIntervalRef.current = setInterval(() => {
-        if (charIndex <= text.length) {
-          setCurrentText(text.substring(0, charIndex));
-          charIndex++;
-        } else {
-          clearInterval(typingIntervalRef.current);
-          deletingIntervalRef.current = setTimeout(deleteText, 2000);
-        }
-      }, 100);
-    };
-
-    const deleteText = () => {
-      const text = texts[currentIndex.current];
-      let charIndex = text.length;
-      deletingIntervalRef.current = setInterval(() => {
-        if (charIndex >= 0) {
-          setCurrentText(text.substring(0, charIndex));
-          charIndex--;
-        } else {
-          clearInterval(deletingIntervalRef.current);
-          currentIndex.current = (currentIndex.current + 1) % texts.length;
-          typingIntervalRef.current = setTimeout(typeText, 1000);
-        }
-      }, 100);
-    };
-
-    typeText();
-
-    return () => {
-      clearInterval(typingIntervalRef.current);
-      clearInterval(deletingIntervalRef.current);
-      clearTimeout(deletingIntervalRef.current);
-      clearTimeout(typingIntervalRef.current);
-    };
-  }, [texts]);
-
+import React from 'react'
+// import Login from './Login';
+import { useNavigate } from 'react-router-dom';
+export default function Course() {
+  const msg="No work experience";
+  const navigate=useNavigate();
+  
+  
   return (
-    <>
-    <div ref={containerRef} className="typing_text">{currentText}</div>
-    <img className='home-pic' src='https://files.codingninjas.in/438375-17407.webp' alt='home ima'/>
-        <img className='home-pic-two' src='https://files.codingninjas.com/group-3931-8996.svg' alt='home ima'/>
-    <div className="typing_text" ref={containerRef}></div>
-<div className="text-2">Be a Coding Ninja </div>
-<p className="para-1">50,000 Students from 300 Colleges have trusted us .</p>
-<button className="btn-explore">Explore Our Programs</button>
+    <div id='course'>
+        
+        <div className='background' >
+            <div className='.div'>
+                <p><h2>Online Coding Courses</h2></p>
+            <p className='div-text'>Most loved online coding courses for college students and working <br/>professionals</p>
+            <button className='b-browse'>Browse for more course</button>
+            <button className='b-try'>try for free</button>
+            </div>
+            <img className='picsss' src='https://files.codingninjas.in/courses-page-top-bg-11535.svg' alt=''/>
 
-      <Section2/>
-      <button className='btn'>Hear more stories from our alumni</button>
-      <Section3/>
-      <Section4/>
-      <Section/>
-      <Section6/>
-      <Section7/>
-    </>
+        </div>
+        <img src='https://files.codingninjas.com/gsst-homepage_web-27881.svg' alt=''/>
+    <div className='mac' style={{marginTop:"-200px"}}>
+
+
+
+    <div className='section6-second' style={{marginTop:"200px"}}>
+            <h3>Courses specially curated for</h3>
+            <p>{msg.one}    <span  style={{color:"tomato"}}>Edit preference<i className="fa-sharp fa-light fa-clock"></i></span></p>
+            <h4>Recommended courses for students</h4>
+            <div className='section6-second-flex'>
+
+
+                {/* {data.map((item,index)=>{
+                    return (
+                        <div keys={index}  className='section6-second-child' onClick={()=>handleFunc(item)}>
+                       <div style={{marginLeft:"0px"}}>
+                       <p>{item.title}</p>
+                        <h4>{item.title2}</h4>
+                        <img src={item.img} alt='' width={"50px"}/>
+                       </div>
+                       <p><i className="fa-light fa-clock"></i>{item.time} &nbsp; 
+                       <img src='https://files.codingninjas.in/mdi_palette-swatch-19337.svg' alt='' width={"15px"}/> {item.problem}</p> 
+                       <p>{item.ratings} <img src='https://files.codingninjas.in/4-8-stars-5588.png' alt='' width={"70px"}/> ({item.count})</p>
+
+                        </div>
+                    )
+                })} */}
+
+
+                  
+            </div>
+        </div>
+
+    </div>
+
     
-    );
-}
+    <div style={{position:"relative",left:"-200px"}}>
+    {/* <Footer/> */}
+    </div>
 
-export default TypingComponent;
+    </div>
+  )
+}
