@@ -7,7 +7,7 @@ const CourseMap=({data})=>{
   
  
   const courseDetail=async(data,names)=>{
-    const url="https://ninja-wclb.onrender.com/update";
+    const url="https://ninjabackend.onrender.com/update";
 
    axios.post(url,{data,names})
     .then((res)=>{
@@ -19,9 +19,9 @@ const CourseMap=({data})=>{
   }
 const p=async()=>{
   var orderId ;
-$(document).ready(function(){
+$(function(){
     var settings = {
-  "url": "https://ninja-wclb.onrender.com/create/order",
+  "url": "https://ninjabackend.onrender.com/create/order",
   "method": "POST",
   "timeout": 0,
   "headers": {
@@ -46,7 +46,7 @@ $.ajax(settings).done(function (response) {
 document.getElementById('rzp-button1').onclick = function(e){
  
   var options = {
-    "key": "rzp_test_Hk1Cj8n9Wbk9zP", // Enter the Key ID generated from the Dashboard
+    "key": "rzp_test_vxXEO5AdtLOq8i", // Enter the Key ID generated from the Dashboard
     "amount": data.price*100 , // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
     "name": "Coding ninja",
@@ -55,14 +55,13 @@ document.getElementById('rzp-button1').onclick = function(e){
     "order_id": orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
     "handler": function (response){
         alert(response.razorpay_payment_id);
-        // alert(response.razorpay_order_id);
-        // alert(response.razorpay_signature)
+        
      
         courseDetail(data,names)
         navigate('/')
 
         var settings = {
-          "url": "https://codeninja-1hav.onrender.com/verify",
+          "url": "https://ninjabackend.onrender.com/verify",
           "method": "POST",
           "timeout": 0,
           "headers": {

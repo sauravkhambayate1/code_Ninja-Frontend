@@ -1,9 +1,8 @@
 import React from 'react'
-// import Login from './Login';
-import { useNavigate } from 'react-router-dom';
+
 export default function Course() {
   const msg="No work experience";
-  const navigate=useNavigate();
+ 
   
   
   return (

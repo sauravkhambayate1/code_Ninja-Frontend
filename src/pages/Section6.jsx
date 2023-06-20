@@ -10,7 +10,7 @@ export default function Section6() {
     const [msg,setMsg]=useState("No work experience")
  const handle=()=>{
     setToggle(!toggle);
-    setMsg("Having work exoerience")
+    setMsg("Having work experience")
 }
 
  const Handlebutton=()=>{

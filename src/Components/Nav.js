@@ -55,16 +55,20 @@ function Navbar() {
 
 
   const handledata = () => {
-    axios.post("https://codeninja-1hav.onrender.com/signup", data)
-      .then((res) => { console.log(res) })
+    axios.post("https://ninjabackend.onrender.com/signup", data)
+        .then((res) => { console.log(res) })
       .catch((err) => { console.log(err); })
     alert("Registeration complete sucessfully")
+      
+
+      
+    
   }
 
   const handledata1 = (e) => {
     e.preventDefault()
 
-    axios.post("https://codeninja-1hav.onrender.com/signin", data1)
+    axios.post("https://ninjabackend.onrender.com/signin", data1)
       .then(async (res) => {
         console.log(res);
         names=res.data.name
@@ -114,7 +118,7 @@ login=user;
         <ol >
 
           <li><img className='dis' src='https://files.codingninjas.in/logo_variants-white-25005.png' alt='logo' width={"100px"} /></li>
-          <li className='hi' >course <i className="fa-sharp fa-solid fa-caret-down"></i>
+          <li className='hi' >Course <i className="fa-sharp fa-solid fa-caret-down"></i>
             <ol className='dropdown'>
               <li >
                 <div style={{ textAlign: "left" }}>
@@ -143,8 +147,8 @@ login=user;
 
           </li>
           <li>Scholarship <span className='upto'>UP TO 100% OFF</span></li>
-          <li>community <i className="fa-sharp fa-solid fa-caret-down"></i></li>
-          <li>pratice <i className="fa-sharp fa-solid fa-caret-down"></i>
+          <li>Community <i className="fa-sharp fa-solid fa-caret-down"></i></li>
+          <li>Practise <i className="fa-sharp fa-solid fa-caret-down"></i>
             <ol className='drop'>
               <li >Coding Ninja Studio</li>
               <li>Contest</li>
@@ -282,7 +286,7 @@ login=user;
                       id="email1"
                       value={data1.email}
                       name="email"
-                      className="form-control"
+                    
                       onChange={handlelogin}
                       placeholder="enter a email here!..."
                     />
@@ -294,7 +298,7 @@ login=user;
                       id="password1"
                       value={data1.password}
                       name="password"
-                      className="form-control"
+                      
                       onChange={handlelogin}
                       placeholder="password?..."
                     />
